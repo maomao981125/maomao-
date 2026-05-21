@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>示範前端頁面（無框架）</title>
+  <link rel="stylesheet" href="styles.css">
+  </head>
+<body>
+  <header class="site-header">
+    <h1>示範前端頁面</h1>
+    <button id="themeToggle" aria-label="切換主題">切換主題</button>
+  </header>
+
+  <main class="container">
+    <section class="flashcard-area">
+      <div class="controls">
+        <button id="prevBtn" aria-label="上一個">上一個</button>
+        <button id="nextBtn" aria-label="下一個">下一個</button>
+      </div>
+
+      <div class="flip-card" id="flipCard" tabindex="0" role="button" aria-pressed="false">
+        <div class="flip-card-inner" id="flipInner">
+          <div class="flip-card-front" id="cardFront">
+            <div class="word" id="wordText">Word</div>
+          </div>
+          <div class="flip-card-back" id="cardBack">
+            <div class="back-content">
+              <div class="meta">
+                <span id="pos"></span>
+                <span id="translation"></span>
+              </div>
+              <div class="example" id="example"></div>
+              <div class="root" id="rootAnalysis"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="hint">點擊卡片或按空白鍵翻面；左右鍵換卡。</p>
+    </section>
+  </main>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>

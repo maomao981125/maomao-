@@ -1,0 +1,59 @@
+:root{
+  --bg:#f7f7fb;
+  --card:#ffffff;
+  --text:#111827;
+  --muted:#6b7280;
+  --accent:#2563eb;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 1.25rem;
+  background:linear-gradient(90deg,rgba(255,255,255,0.6),rgba(255,255,255,0.4));
+  border-bottom:1px solid #e6e7ef;
+}
+.container{max-width:980px;margin:2rem auto;padding:0 1rem}
+  .container{max-width:980px;margin:2rem auto;padding:0 1rem}
+
+  /* Flashcard layout */
+  .flashcard-area{display:flex;flex-direction:column;align-items:center;gap:1rem}
+  .controls{display:flex;gap:.5rem}
+  .controls button{background:transparent;color:var(--accent);border:1px solid rgba(37,99,235,0.14);padding:.4rem .6rem;border-radius:8px}
+
+  /* Flip card */
+  .flip-card{width:320px;height:200px;perspective:1000px;cursor:pointer}
+  .flip-card:focus{outline:3px solid rgba(37,99,235,0.18);outline-offset:4px}
+  .flip-card-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+  .flip-card-inner.is-flipped{transform:rotateY(180deg)}
+  .flip-card-front,.flip-card-back{position:absolute;width:100%;height:100%;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:1rem;box-shadow:0 8px 24px rgba(15,23,42,0.08)}
+  .flip-card-front{background:var(--card);font-size:2rem}
+  .flip-card-back{background:linear-gradient(180deg,#ffffff,#f1f5f9);transform:rotateY(180deg);flex-direction:column;align-items:flex-start}
+  .word{font-weight:700}
+  .back-content{width:100%}
+  .meta{display:flex;gap:.5rem;align-items:center;font-weight:600;color:var(--muted);margin-bottom:.5rem}
+  .example{font-size:.95rem;color:#0f172a;margin-bottom:.5rem}
+  .root{font-size:.9rem;color:#374151}
+  .hint{font-size:.85rem;color:var(--muted)}
+
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0b1220;--card:#071129;--text:#e6eef8;--muted:#9aa7bb;--accent:#60a5fa}
+  .site-header{background:linear-gradient(90deg, rgba(10,14,20,0.7), rgba(10,14,20,0.6));border-bottom:1px solid rgba(255,255,255,0.03)}
+}
+
+/* explicit dark toggle */
+body.dark{background:#0b1220;color:var(--text)}
+body.dark .card, body.dark .hero{background:#071129}
+
+@media (max-width:420px){
+  .flip-card{width:92vw;height:56vw}
+}
